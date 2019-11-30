@@ -16,6 +16,8 @@ const forecast = (latitude, longitude, callback) => {
       const summary = body.daily.data[0].summary;
       const temperature = body.currently.temperature;
       const precipProbability = body.currently.precipProbability;
+      const windSpeed = body.currently.windSpeed;
+      const windGust = body.currently.windGust;
       callback(
         undefined,
         summary +
@@ -23,7 +25,11 @@ const forecast = (latitude, longitude, callback) => {
           temperature +
           " degrees out. There is a " +
           precipProbability +
-          " % chance of rain."
+          " % chance of rain. Wind speed is " +
+          windSpeed +
+          " mph with gusts up to " +
+          windGust +
+          "mph."
       );
     }
   });
